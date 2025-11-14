@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="NoteSkin" load_steps=7 format=3 uid="uid://cj2hoqrld81vv"]
+
+[ext_resource type="AudioStream" uid="uid://dcshy6cfnwrkl" path="res://assets/sounds/menu sounds/hitsound.wav" id="1_7y8y0"]
+[ext_resource type="Script" uid="uid://rwa2lqwuhfdc" path="res://resources/note_skin.gd" id="1_ejrj1"]
+[ext_resource type="SpriteFrames" uid="uid://clalimjd3yte3" path="res://assets/sprites/playstate/default/arrow/notes.tres" id="1_lvg3v"]
+[ext_resource type="SpriteFrames" uid="uid://bw8j67b3ju40g" path="res://assets/sprites/playstate/default/arrow/covers.res" id="2_hgpr1"]
+[ext_resource type="SpriteFrames" uid="uid://ce6cgt08fam51" path="res://assets/sprites/playstate/default/arrow/strums.tres" id="3_1nols"]
+[ext_resource type="SpriteFrames" path="res://assets/sprites/playstate/default/arrow/splashes/note_splashes.res" id="3_3w5ev"]
+
+[resource]
+script = ExtResource("1_ejrj1")
+strums_texture = ExtResource("3_1nols")
+notes_texture = ExtResource("1_lvg3v")
+splashes_texture = ExtResource("3_3w5ev")
+hold_covers_texture = ExtResource("2_hgpr1")
+pixel_texture = false
+notes_scale = 0.78
+splash_scale = 1.0
+sustain_width = 50
+hold_covers_scale = 1.2
+animation_names = Dictionary[String, String]({})
+offsets = Dictionary[String, Vector2]({
+"cover down": Vector2(0, 0),
+"cover down end": Vector2(0, 0),
+"cover left": Vector2(0, 0),
+"cover left end": Vector2(0, 0),
+"cover right": Vector2(0, 0),
+"cover right end": Vector2(0, 0),
+"cover up": Vector2(0, 0),
+"cover up end": Vector2(0, 0)
+})
+hit_sound = ExtResource("1_7y8y0")

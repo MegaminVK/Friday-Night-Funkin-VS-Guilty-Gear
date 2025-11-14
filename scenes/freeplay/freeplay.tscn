@@ -1,0 +1,175 @@
+[gd_scene load_steps=16 format=3 uid="uid://gbra80y44814"]
+
+[ext_resource type="Script" uid="uid://b6vcw0ly2036" path="res://scenes/freeplay/freeplay.gd" id="1_8wllq"]
+[ext_resource type="Script" uid="uid://b1blhjns06ilt" path="res://scenes/instances/conductor.gd" id="1_d85pb"]
+[ext_resource type="AudioStream" uid="uid://du4qr2rxqjkw" path="res://assets/songs/menu songs/gettin' freaky.ogg" id="2_w52tp"]
+[ext_resource type="Texture2D" uid="uid://dix7cy7ydksfi" path="res://assets/sprites/menus/background/main menu/menuDesat.png" id="5_xlpwk"]
+[ext_resource type="Texture2D" uid="uid://5b2u1q1kihtj" path="res://assets/sprites/menus/freeplay/clearBox.png" id="7_jukaj"]
+[ext_resource type="PackedScene" uid="uid://cnu4wa5x8qwp5" path="res://scenes/freeplay/difficulty_selector.tscn" id="7_klryl"]
+[ext_resource type="FontFile" uid="uid://8cxhkah8id6n" path="res://assets/fonts/Bold Normal Text.ttf" id="7_yte2n"]
+[ext_resource type="FontFile" uid="uid://ede277aql5vu" path="res://assets/fonts/Normal Text.ttf" id="8_sfkso"]
+[ext_resource type="Texture2D" uid="uid://cgytynqqgidyi" path="res://assets/sprites/menus/freeplay/album covers/volume1.png" id="9_u33nh"]
+[ext_resource type="PackedScene" uid="uid://d1wj3tkjvp2xi" path="res://scenes/instances/results/score_display.tscn" id="10_5d5kc"]
+[ext_resource type="Texture2D" uid="uid://d38vcbkkjx571" path="res://assets/sprites/menus/freeplay/pinkBack.png" id="11_j37bj"]
+[ext_resource type="SpriteFrames" uid="uid://dpt4oelxa4rxf" path="res://assets/sprites/menus/freeplay/highscore.res" id="12_d02cx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_d02cx"]
+font = ExtResource("7_yte2n")
+font_size = 38
+
+[sub_resource type="LabelSettings" id="LabelSettings_w0sdm"]
+font = ExtResource("7_yte2n")
+font_size = 32
+outline_size = 12
+outline_color = Color(0.0273438, 0.0273438, 0.0273438, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mxklt"]
+font = ExtResource("8_sfkso")
+
+[node name="Freeplay" type="Node2D"]
+script = ExtResource("1_8wllq")
+difficulties = Array[String](["easy", "normal", "hard", "erect", "nightmare"])
+metadata/_edit_horizontal_guides_ = [88.0]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+
+[node name="Conductor" type="Node" parent="."]
+script = ExtResource("1_d85pb")
+stream_player = NodePath("../Audio/Music")
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="Music" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("2_w52tp")
+volume_db = -80.0
+bus = &"Music"
+parameters/looping = true
+
+[node name="Above" type="CanvasLayer" parent="."]
+layer = 3
+offset = Vector2(640, 360)
+transform = Transform2D(1, 0, 0, 1, 640, 360)
+follow_viewport_enabled = true
+
+[node name="ClearBox" type="Sprite2D" parent="Above"]
+z_index = 20
+position = Vector2(576, -328)
+texture = ExtResource("7_jukaj")
+
+[node name="Label" type="Label" parent="Above/ClearBox"]
+offset_left = -53.0
+offset_top = -17.0
+offset_right = 20.0
+offset_bottom = 35.0
+label_settings = SubResource("LabelSettings_d02cx")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Above"]
+z_index = 10
+offset_left = -643.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = -296.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Above/ColorRect"]
+layout_mode = 0
+offset_left = 3.0
+offset_right = 1283.0
+offset_bottom = 57.0
+bbcode_enabled = true
+text = "[font_size=32][font=\"res://assets/fonts/Results Background.ttf\"][font bt=-16.0][pulse freq=0.8 color=#ffffff40 ease=-2.0]Press [TAB] to change characters[/pulse][/font]"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Difficulty Selector" parent="." instance=ExtResource("7_klryl")]
+follow_viewport_enabled = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+offset = Vector2(640, 360)
+transform = Transform2D(1, 0, 0, 1, 640, 360)
+follow_viewport_enabled = true
+
+[node name="Score Display" parent="UI" instance=ExtResource("10_5d5kc")]
+position = Vector2(360, -208)
+scale = Vector2(0.7, 0.7)
+digits = 7
+tween_time = 0.25
+spacing = 60.0
+
+[node name="Album Cover" type="Sprite2D" parent="UI"]
+z_index = 2
+position = Vector2(448, 96)
+rotation = 0.171042
+texture = ExtResource("9_u33nh")
+
+[node name="Album Name" type="Label" parent="UI/Album Cover"]
+unique_name_in_owner = true
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -279.434
+offset_top = -27.4822
+offset_right = 24.5662
+offset_bottom = 20.5179
+grow_horizontal = 2
+grow_vertical = 2
+text = "Album Name"
+label_settings = SubResource("LabelSettings_w0sdm")
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 4
+
+[node name="Album Song List" type="Label" parent="UI"]
+unique_name_in_owner = true
+visible = false
+z_index = 2
+anchors_preset = -1
+anchor_left = 0.225
+anchor_top = 0.122
+anchor_right = 0.466
+anchor_bottom = 0.489
+offset_left = 40.0
+offset_top = -391.84
+offset_right = 35.52
+offset_bottom = -624.08
+text = "Album Credits"
+label_settings = SubResource("LabelSettings_mxklt")
+autowrap_mode = 3
+
+[node name="Highscore Text" type="AnimatedSprite2D" parent="UI"]
+unique_name_in_owner = true
+position = Vector2(488, -271)
+sprite_frames = ExtResource("12_d02cx")
+animation = &"highscore small instance 1"
+autoplay = "highscore small instance 1"
+frame_progress = 0.62573
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+offset = Vector2(640, 360)
+transform = Transform2D(1, 0, 0, 1, 640, 360)
+follow_viewport_enabled = true
+
+[node name="Background" type="Sprite2D" parent="Background"]
+unique_name_in_owner = true
+z_index = -1
+position = Vector2(128, 0)
+texture = ExtResource("5_xlpwk")
+metadata/_edit_lock_ = true
+
+[node name="CardGlow" type="Sprite2D" parent="Background"]
+clip_children = 2
+position = Vector2(-384, 0)
+texture = ExtResource("11_j37bj")
+metadata/_edit_lock_ = true
+
+[connection signal="new_beat" from="Conductor" to="." method="_on_conductor_new_beat"]
+[connection signal="selected_difficulty" from="Difficulty Selector" to="." method="_on_difficulty_selector_selected_difficulty"]
