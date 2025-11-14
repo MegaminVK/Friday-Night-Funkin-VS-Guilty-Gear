@@ -1,0 +1,26 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://dt82dx1mf15r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihqpl"]
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jt5go"]
+region = Rect2(150, 0, 150, 150)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihqpl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jt5go")
+}],
+"loop": true,
+"name": &"losing",
+"speed": 5.0
+}]
