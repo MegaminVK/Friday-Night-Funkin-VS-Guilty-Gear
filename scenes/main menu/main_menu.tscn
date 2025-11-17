@@ -1,19 +1,19 @@
 [gd_scene load_steps=10 format=3 uid="uid://rc52vcn2m7ob"]
 
 [ext_resource type="Script" uid="uid://5wer7nb0rrip" path="res://scenes/main menu/main_menu.gd" id="1_78p5c"]
-[ext_resource type="Texture2D" uid="uid://cj0kwltd54xru" path="res://assets/sprites/menus/background/main menu/menuBG.png" id="1_b4ekr"]
 [ext_resource type="Script" uid="uid://b1blhjns06ilt" path="res://scenes/instances/conductor.gd" id="2_leh0b"]
 [ext_resource type="PackedScene" uid="uid://daqubxavwk7jv" path="res://scenes/main menu/story_mode.tscn" id="2_ll3w7"]
 [ext_resource type="PackedScene" uid="uid://dikvwu1vkcjqq" path="res://scenes/main menu/freeplay.tscn" id="4_hiw7n"]
 [ext_resource type="PackedScene" uid="uid://deq86v7ryf1jq" path="res://scenes/main menu/options.tscn" id="6_v3nl2"]
+[ext_resource type="Texture2D" uid="uid://bxv1m7s6jfcw3" path="res://assets/sprites/menus/background/main_menu_Guilty_Gear/GGBackground1.jpg" id="7_vin4k"]
+[ext_resource type="Texture2D" uid="uid://bby4daaq61w4i" path="res://assets/sprites/menus/background/main_menu_Guilty_Gear/GGBackground2.jpg" id="8_kjcs7"]
 [ext_resource type="PackedScene" uid="uid://40bxl3qwj0fv" path="res://scenes/main menu/credits.tscn" id="8_ya104"]
-[ext_resource type="Texture2D" uid="uid://boepmdvh5sknc" path="res://assets/sprites/menus/background/main menu/menuBGBlue.png" id="9_am078"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tynp6"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_b4ekr")
+"texture": ExtResource("7_vin4k")
 }],
 "loop": true,
 "name": &"idle",
@@ -21,14 +21,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_b4ekr")
+"texture": ExtResource("7_vin4k")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_am078")
+"texture": ExtResource("8_kjcs7")
 }],
 "loop": true,
 "name": &"selected",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [node name="Main Menu" type="Node2D"]
@@ -81,7 +81,8 @@ follow_viewport_scale = 0.1
 
 [node name="Background" type="AnimatedSprite2D" parent="Background"]
 sprite_frames = SubResource("SpriteFrames_tynp6")
-animation = &"idle"
+animation = &"selected"
+frame_progress = 0.10043902
 metadata/_edit_lock_ = true
 
 [connection signal="new_beat" from="Conductor" to="." method="_on_conductor_new_beat"]
