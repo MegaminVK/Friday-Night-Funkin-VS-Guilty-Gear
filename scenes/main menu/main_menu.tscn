@@ -53,21 +53,22 @@ follow_viewport_scale = 0.2
 [node name="Button Manager" type="Node2D" parent="UI"]
 
 [node name="Story Mode" parent="UI/Button Manager" instance=ExtResource("2_ll3w7")]
-position = Vector2(-12.5, -267)
-animation = &"story_mode white"
+position = Vector2(-297, -185)
+frame_progress = 0.46546626
 
 [node name="Freeplay" parent="UI/Button Manager" instance=ExtResource("4_hiw7n")]
-position = Vector2(-12.5, -87)
+position = Vector2(-299, -46)
+animation = &"freeplay white"
 
 [node name="Credits" parent="UI/Button Manager" instance=ExtResource("8_ya104")]
-position = Vector2(-12.5, 93)
+position = Vector2(-381, 84)
 animation_names = Dictionary[String, String]({
 "idle": "credits idle",
 "selected": "credits selected"
 })
 
 [node name="Options" parent="UI/Button Manager" instance=ExtResource("6_v3nl2")]
-position = Vector2(-12.5, 273)
+position = Vector2(-350, 234)
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
