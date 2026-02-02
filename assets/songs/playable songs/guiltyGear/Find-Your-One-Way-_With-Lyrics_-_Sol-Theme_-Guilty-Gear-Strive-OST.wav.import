@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://by7wawgqvdqkp"
+path="res://.godot/imported/Find-Your-One-Way-_With-Lyrics_-_Sol-Theme_-Guilty-Gear-Strive-OST.wav-f9afd9252ba299eda738b14e930d68ea.sample"
+
+[deps]
+
+source_file="res://assets/songs/playable songs/guiltyGear/Find-Your-One-Way-_With-Lyrics_-_Sol-Theme_-Guilty-Gear-Strive-OST.wav"
+dest_files=["res://.godot/imported/Find-Your-One-Way-_With-Lyrics_-_Sol-Theme_-Guilty-Gear-Strive-OST.wav-f9afd9252ba299eda738b14e930d68ea.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
