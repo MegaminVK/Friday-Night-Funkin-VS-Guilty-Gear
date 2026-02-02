@@ -20,7 +20,7 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.51,
+"duration": 1.0,
 "texture": ExtResource("7_vin4k")
 }, {
 "duration": 1.0,
@@ -28,7 +28,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"selected",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [node name="Main Menu" type="Node2D"]
@@ -53,12 +53,8 @@ follow_viewport_scale = 0.2
 [node name="Button Manager" type="Node2D" parent="UI"]
 
 [node name="Story Mode" parent="UI/Button Manager" instance=ExtResource("2_ll3w7")]
-<<<<<<< HEAD
-position = Vector2(-12.5, -267)
-=======
 position = Vector2(-297, -185)
 frame_progress = 0.46546626
->>>>>>> 554275bc8eaa232f571ef929742664e0987f031f
 
 [node name="Freeplay" parent="UI/Button Manager" instance=ExtResource("4_hiw7n")]
 position = Vector2(-299, -46)
